@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calendar - Gregorian to Hebrew Converter</title>
+</head>
+<body style="background:#87CEFA;">
+    <div style="position:relative; width:100%;">
+        <div>
+            <h2 style="color:#0205ad; display:inline;">Please enter the Gregorian date:</h2>
+        </div>
+        <div style="display:inline-block; clear:both;">
+            <form method="POST", style="display:inline-block;">
+                {{ form.hidden_tag() }}
+
+                {{ form.day.label }}
+                {{ form.day(maxlength="2", style="width:20px") }}
+
+                {{ form.month.label }}
+                {{ form.month(maxlength="2",style="width:20px") }}
+
+                {{ form.year.label }}
+                {{ form.year(maxlength="4",style="width:30px") }}
+
+                <div>
+                        {{ form.submit(style="width:200px") }}
+                </div>
+
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for msg in messages %}
+                            <div>
+                                <h2 style="color:#ff0000">{{ msg }}</h2>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
